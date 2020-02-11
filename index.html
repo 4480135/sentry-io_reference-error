@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <title>Document</title>
+</head>
+<body>
+
+
+    
+
+    <script src="https://browser.sentry-cdn.com/5.12.1/bundle.min.js" integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3" crossorigin="anonymous">
+    </script>
+
+    <script>
+        Sentry.init({ dsn: 'https://59b5abb0bfed426ea52f72bf0655b63c@sentry.io/2432617' });
+
+
+        // Reference errors
+        function ONE() { (() => {"use strict"; y = "";})(); } // y is not defined (strict mode enforces this)
+        function TWO() { x = "c"; delete x; console.log(x); } // x is not defined (deleted variable with no let/var/const)
+        function THREE() { let a = b; let b = 1; } // Cannot access b before initialization
+        function FOUR() { let c = d; } // c is not defined
+        function FIVE() { refFunction(); } // function is undefined
+    </script>
+</body>
+</html>
